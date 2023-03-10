@@ -49,7 +49,7 @@ if __name__ == '__main__':
     """Main method to get expected word"""
     input_lines = read_input('prueba_hiring_input.txt')
     processed_input = process_input(input_lines)
-    for box, origin_pos, destini_pos in processed_input:
-        move(box, origin_pos, destini_pos)
+    for box, origin_pos, destiny_pos in processed_input:
+        move(box, origin_pos, destiny_pos)
 
     print("".join([i[-1] for i in BOAT]))
