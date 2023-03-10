@@ -15,7 +15,7 @@ BOAT: List[List[str]] = [
 
 
 def move(box_num: int, position_1: int, position_2: int) -> None:
-    """Move elements in """
+    """Move elements in BOAT. This will work at memory level (no need returns)"""
     for i in range(box_num):
         val = BOAT[position_1].pop(-1)
         BOAT[position_2].append(val)
@@ -45,11 +45,19 @@ def process_input(lines: List[str]) -> List[List[int]]:
     return result
 
 
-if __name__ == '__main__':
-    """Main method to get expected word"""
-    input_lines = read_input('prueba_hiring_input.txt')
-    processed_input = process_input(input_lines)
+def move_boxes(processed_input: List[List[int]]) -> None:
+    """Move boxes based on input values"""
     for box, origin_pos, destiny_pos in processed_input:
         move(box, origin_pos, destiny_pos)
 
-    print("".join([i[-1] for i in BOAT]))
+
+if __name__ == '__main__':
+    """Main method to get expected word"""
+
+    print(f'ORIGINAL WORD: {"".join([i[-1] for i in BOAT])}')
+
+    input_lines = read_input('prueba_hiring_input.txt')
+    processed_input = process_input(input_lines)
+    move_boxes(processed_input)
+
+    print(f'FINAL WORD: {"".join([i[-1] for i in BOAT])}')
